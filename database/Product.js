@@ -27,7 +27,7 @@ var Product = mongoose.model("Product", productSchema);
 // helper functions
 /* all available products */
 
-var getAllavilable = function(callback) {
+var getAllAvilable = function(callback) {
   Product.find({ availability: true }, (err, data) => {
     if (err) {
       callback(err, null);
@@ -58,6 +58,6 @@ var createp = function(productinfo, callback) {
   product.save(callback);
 };
 
-module.exports.getAllavilable = getAllavilable;
+module.exports.getAllAvilable = getAllAvilable;
 module.exports.getOneProduct = getOneProduct;
 module.exports.createp = createp;

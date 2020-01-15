@@ -1,27 +1,24 @@
 const mongoose = require("mongoose");
-
-const Products = require("../database/Product");
-
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 app.use(cors());
+const Type = require("../database/Type");
 
 module.exports = app => {
-  app.get("/api/products", (req, res) => {
-    Products.getAllAvilable((err, data) => {
+  app.get("/api/types", (req, res) => {
+    Type.getAllType((err, data) => {
       if (err) {
-        res.status(404).send(err);
+        res.status(400).send();
       } else {
         res.status(200).send(data);
         res.end();
       }
     });
   });
-  // don't forget to add product type okkkkkkkkkkkk?????
-  app.post("/api/addproduct", (req, res) => {
-    Products.createp(req.body, (err, result) => {
+
+  app.post("/api/addType", (req, res) => {
+    Type.createt(req.body, (err, result) => {
       if (err) {
         res.status(400).send(err);
       } else {
