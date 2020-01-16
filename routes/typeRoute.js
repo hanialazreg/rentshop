@@ -18,12 +18,12 @@ module.exports = app => {
   });
 
   app.post("/api/addType", (req, res) => {
+    console.log(req.body);
     Type.createt(req.body, (err, result) => {
       if (err) {
         res.status(400).send(err);
       } else {
         res.status(200).send(result);
-        res.end();
       }
     });
   });

@@ -23,6 +23,7 @@ module.exports = app => {
   app.post("/api/addproduct", (req, res) => {
     Products.createp(req.body, (err, result) => {
       if (err) {
+        console.log(err);
         res.status(400).send(err);
       } else {
         res.status(200).send(result);

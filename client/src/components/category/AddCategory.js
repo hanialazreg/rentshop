@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, Form, Alert, Modal } from "react-bootstrap";
-import typeService from "../../services/typeService";
+import categoryService from "../../services/categoryService.js";
 
-class AddType extends React.Component {
+class AddCategory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type_name: "",
+      name: "",
 
       show: false,
       alert: "success",
@@ -20,10 +20,9 @@ class AddType extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("dddddddddddddddddddddd", this.state.type_name);
-    typeService
+    categoryService
       .add(this.state)
-      .then(response => {
+      .then(res => {
         this.setState({
           show: true,
           alert: "success",
@@ -31,18 +30,17 @@ class AddType extends React.Component {
         });
       })
       .catch(err => {
-        console.log(err);
         this.setState({
           show: true,
           alert: "danger",
-          message: "type already exist"
+          message: "category already exist"
         });
       });
   }
 
   onChange(e) {
     this.setState({
-      type_name: e.target.value
+      name: e.target.value
     });
   }
 
@@ -61,20 +59,20 @@ class AddType extends React.Component {
           </Alert>
           <Form.Row>
             <Form.Group controlId="formGridName">
-              <Form.Label>Type</Form.Label>
+              <Form.Label>Category</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Type Name"
-                value={this.state.type_name}
+                placeholder="Product Name"
+                value={this.state.name}
                 onChange={e => {
                   this.onChange(e);
                 }}
-                // name="name"
+                name="name"
               />
             </Form.Group>
           </Form.Row>
           <Button variant="primary" onClick={this.handleSubmit}>
-            Add new Typeee
+            Add new Category
           </Button>
         </Form>
       </Modal>
@@ -82,4 +80,4 @@ class AddType extends React.Component {
   }
 }
 
-export default AddType;
+export default AddCategory;

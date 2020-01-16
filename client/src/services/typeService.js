@@ -4,8 +4,9 @@ export default {
   add: type => {
     return axios
       .post("/api/addType", {
-        name: type.name
+        type_name: type.type_name
       })
+
       .then(response => response)
       .catch(err => {
         throw err;
@@ -13,7 +14,7 @@ export default {
   },
   getTypes: () => {
     return axios
-      .get("/api/Types")
+      .get("/api/types")
       .then(res => res)
       .catch(err => {
         throw err;

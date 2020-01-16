@@ -17,6 +17,7 @@ app.use(cookieParser());
 require("./routes/productRoute")(app);
 require("./routes/userRoutes")(app);
 require("./routes/typeRoute")(app);
+require("./routes/categoryRoute")(app);
 
 //redirect all the requests to our frontend application, unless we specify any route before this code.
 

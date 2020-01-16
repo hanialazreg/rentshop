@@ -17,10 +17,16 @@ const productSchema = new Schema({
     }
   },
   price_rent: { type: Number },
-  type_rent: { type: Schema.Types.ObjectId, ref: "Types" },
+  type_rent: { type: Schema.Types.ObjectId, ref: "Type" },
   availability: { type: Boolean },
   store: { type: Number },
-  renters: [{ type: Schema.Types.ObjectId, ref: "Users" }]
+  category: { type: Schema.Types.ObjectId, ref: "Categorie" },
+  renters: [
+    {
+      user: { type: Schema.Types.ObjectId, ref: "user" },
+      date: { type: Date }
+    }
+  ]
 });
 
 var Product = mongoose.model("Product", productSchema);
@@ -53,6 +59,7 @@ var createp = function(productinfo, callback) {
     image: productinfo.image,
     price_rent: productinfo.price_rent,
     type_rent: productinfo.type_rent,
+    category: productinfo.category,
     store: productinfo.store
   });
   product.save(callback);

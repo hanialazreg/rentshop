@@ -10,7 +10,7 @@ const typeSchema = new Schema({
 
 var Type = mongoose.model("Type", typeSchema);
 
-var getAllType = function() {
+var getAllType = function(callback) {
   Type.find((err, data) => {
     if (err) {
       callback(err, null);
@@ -21,10 +21,16 @@ var getAllType = function() {
 };
 
 var createt = function(typeinfo, callback) {
-  var type = new Type({
-    type_name: typeinfo.type_name
+  var type = new Type(typeinfo);
+  console.log("hhhhhhh", typeinfo);
+  type.save((err, data) => {
+    if (err) {
+      console.log(err);
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
   });
-  type.save(callback);
 };
 
 module.exports.getAllType = getAllType;
