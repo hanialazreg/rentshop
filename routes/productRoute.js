@@ -31,4 +31,5 @@ module.exports = app => {
       }
     });
   });
+  app.post("/api/rent", (req, res) => {});
 };

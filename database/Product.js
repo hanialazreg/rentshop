@@ -64,6 +64,7 @@ var createp = function(productinfo, callback) {
   });
   product.save(callback);
 };
+var rent = function(quantityinfo, renterinfo) {};
 
 module.exports.getAllAvilable = getAllAvilable;
 module.exports.getOneProduct = getOneProduct;

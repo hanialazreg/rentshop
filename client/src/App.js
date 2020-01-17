@@ -22,11 +22,14 @@ import Navb from "./components/Navb";
 import { Row, Col, Card, Container } from "react-bootstrap";
 
 import "./App.css";
+import AllProductsCards from "./components/Product/AllProductCards";
+import AllProductCards from "./components/Product/AllProductCards";
 
 class App extends React.Component {
   render() {
     return (
       <div>
+        <AllProductCards />
         <Router>
           <Route path="/" component={Navb} />
         </Router>
