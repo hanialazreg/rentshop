@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const UserDB = require("../database/Users");
 const bcrypt = require("bcryptjs");
 const User = mongoose.model("user");
-
+const secret = "mymymysecretsshhh";
 const jwt = require("jsonwebtoken");
 
 module.exports = app => {
@@ -53,7 +53,7 @@ module.exports = app => {
           } else {
             // Issue token
             const payload = { email };
-            const token = jwt.sign(payload, process.env.SECRET, {
+            const token = jwt.sign(payload, secret, {
               expiresIn: "1h"
             });
             res.cookie("token", token, { httpOnly: true }).sendStatus(200);

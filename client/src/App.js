@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import {
   Button,
   Form,
@@ -11,10 +13,13 @@ import {
   Carousel,
   Jumbotron
 } from "react-bootstrap";
-
+import Image from "react-bootstrap/Image";
+import "bootstrap/dist/css/bootstrap.min.css";
 import AddProduct from "./components/Product/AddProduct";
 import Login from "./components/User/logIn";
 import Signup from "./components/User/signup";
+import Navb from "./components/Navb";
+import { Row, Col, Card, Container } from "react-bootstrap";
 
 import "./App.css";
 
@@ -22,12 +27,21 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Login />
-
-        <br></br>
-        <br></br>
-        <Signup />
-        <AddProduct />
+        <Router>
+          <Route path="/" component={Navb} />
+        </Router>
+        <Container>
+          <Row xs={6} md={4}>
+            <Col>
+              <Image className="home-cl" src="sofa.png" thumbnail />
+            </Col>
+          </Row>
+          <Row xs={6} md={4}>
+            <Col>
+              <Image className="home-cl" src="cont.jpg" thumbnail />
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

@@ -7,6 +7,7 @@ class Login extends React.Component {
       email: "",
       password: ""
     };
+    this.onSubmit = this.onSubmit.bind(this);
   }
   handleInputChange = event => {
     const { value, name } = event.target;
@@ -14,9 +15,31 @@ class Login extends React.Component {
       [name]: value
     });
   };
+
   onSubmit = event => {
     event.preventDefault();
-    alert("Authentication coming soon!");
+    fetch("/api/signin", {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => {
+        console.log("rrrrrrr", res);
+
+        if (res.status === 200) {
+          console.log(this.props.history);
+          this.props.history.push("/");
+        } else {
+          const error = new Error(res.error);
+          throw error;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error logging in please try again");
+      });
   };
   render() {
     return (
