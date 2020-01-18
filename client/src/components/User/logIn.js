@@ -17,6 +17,7 @@ class Login extends React.Component {
   };
 
   onSubmit = event => {
+    console.log("prooops", this.props);
     event.preventDefault();
     fetch("/api/signin", {
       method: "POST",

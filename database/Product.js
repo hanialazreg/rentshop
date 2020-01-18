@@ -44,7 +44,8 @@ var getAllAvilable = function(callback) {
 };
 
 var getOneProduct = function(id, callback) {
-  Product.findById(id).exec((err, product) => {
+  Product.findById(id)
+  .exec((err, product) => {
     if (err) {
       callback(err, null);
     } else {
@@ -64,6 +65,7 @@ var createp = function(productinfo, callback) {
   });
   product.save(callback);
 };
+// on proces rent pseudo code
 var rent = function(quantityinfo, renterinfo) {};
 
 module.exports.getAllAvilable = getAllAvilable;

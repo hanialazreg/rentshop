@@ -19,7 +19,7 @@ module.exports = app => {
       }
     });
   });
-  // don't forget to add product type okkkkkkkkkkkk?????
+
   app.post("/api/addproduct", (req, res) => {
     Products.createp(req.body, (err, result) => {
       if (err) {
@@ -32,4 +32,18 @@ module.exports = app => {
     });
   });
   app.post("/api/rent", (req, res) => {});
+
+  app.get("/api/one", (req, res) => {
+    // don't forguet to change body after complet test ooookkkkkk
+    let id = req.body._id;
+    console.log("hhhuuuhh", req.body._id);
+    Products.getOneProduct(id, (err, data) => {
+      if (err) {
+        res.status(404).send(err);
+      } else {
+        res.status(200).send(data);
+        res.end();
+      }
+    });
+  });
 };

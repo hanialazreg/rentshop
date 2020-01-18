@@ -4,12 +4,11 @@ export default {
     return axios
       .post("/api/rent", {
         //   try to verify things sended
-        date: new Date(),
-        productId: productId,
-        quantity: quantity,
-        duration: duration,
-        UserId: UserId,
-        cost: cost
+        // date: new Date(),
+        // _id: product._id,
+        // quantity: quantity,
+        // duration: duration,
+        // UserId: UserId,
       })
       .then(res => res)
       .catch(err => {

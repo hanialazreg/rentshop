@@ -1,12 +1,16 @@
 import React from "react";
 import { sign } from "jsonwebtoken";
+import signupService from "../../services/signupService";
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
-      password: ""
+      password: "",
+      phone_number: "",
+      alert: { state: false, text: "", variant: "" }
     };
   }
   handleInputChange = event => {
@@ -17,7 +21,26 @@ class Signup extends React.Component {
   };
   onSubmit = event => {
     event.preventDefault();
-    alert("Authentication coming soon!");
+    signupService.regester(this.state).then(res => {
+      if (res.status === 404) {
+        this.setState({
+          alert: {
+            state: true,
+            text: res.data._message || res.data,
+            variant: "danger"
+          }
+        });
+      }
+      if (res.status === 200) {
+        this.setState({
+          alert: {
+            state: true,
+            variant: "success",
+            text: "Sign up Successful wait to be reddirected "
+          }
+        });
+      }
+    });
   };
   render() {
     return (

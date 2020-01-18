@@ -19,33 +19,27 @@ import AddProduct from "./components/Product/AddProduct";
 import Login from "./components/User/logIn";
 import Signup from "./components/User/signup";
 import Navb from "./components/Navb";
+import Rent from "./components/Product/Rent";
 import { Row, Col, Card, Container } from "react-bootstrap";
 
 import "./App.css";
-import AllProductsCards from "./components/Product/AllProductCards";
+
 import AllProductCards from "./components/Product/AllProductCards";
+import Home from "./components/Product/home";
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <AllProductCards />
-        <Router>
-          <Route path="/" component={Navb} />
-        </Router>
-        <Container>
-          <Row xs={6} md={4}>
-            <Col>
-              <Image className="home-cl" src="sofa.png" thumbnail />
-            </Col>
-          </Row>
-          <Row xs={6} md={4}>
-            <Col>
-              <Image className="home-cl" src="cont.jpg" thumbnail />
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Router>
+        <Navb />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/products" exact component={AllProductCards} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/rent" component={Rent} />
+        </Switch>
+      </Router>
     );
   }
 }

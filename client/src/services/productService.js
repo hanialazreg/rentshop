@@ -23,5 +23,13 @@ export default {
       .catch(err => {
         throw err;
       });
+  },
+  getOneProduct: id => {
+    return axios
+      .get("api/one", { params: { id: id } })
+      .then(resonse => resonse)
+      .catch(err => {
+        throw err;
+      });
   }
 };

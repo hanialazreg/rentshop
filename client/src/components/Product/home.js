@@ -15,13 +15,14 @@ import {
   Jumbotron
 } from "react-bootstrap";
 
-import LogIn from "./components/User/LogIn.js";
-import SignUp from "./components/User/signup";
 import "bootstrap/dist/css/bootstrap.min.css";
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {};
+  }
+  render() {
+    return <h1> home on process</h1>;
   }
 }
 
