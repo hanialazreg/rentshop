@@ -22,13 +22,27 @@ class AllProductCards extends Component {
       });
     });
   }
+  componentWillReceiveProps(newProps) {
+    console.log("home compenent====>", newProps);
+    this.setState({ products: newProps.products });
+  }
 
   render() {
     return (
       <div>
-        <Container>
+        {/* <Container>
           {this.state.products.map(product => {
             return <OneCard product={product} />;
+          })}
+        </Container> */}
+        <Container>
+          {this.state.products.map(product => {
+            return (
+              <Link to={`/product?id=${product._id}`}>
+                {" "}
+                <OneCard product={product} />{" "}
+              </Link>
+            );
           })}
         </Container>
       </div>

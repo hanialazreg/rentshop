@@ -26,6 +26,7 @@ import "./App.css";
 
 import AllProductCards from "./components/Product/AllProductCards";
 import Home from "./components/Product/home";
+import OneCard from "./components/Product/OneCard";
 
 class App extends React.Component {
   render() {
@@ -37,7 +38,7 @@ class App extends React.Component {
           <Route path="/products" exact component={AllProductCards} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          {/* <Route path="/products/:id" component={Rent} /> */}
+          <Route path="/products/:id" component={OneCard} />
         </Switch>
       </Router>
     );

@@ -16,7 +16,7 @@ class OneCard extends Component {
       product: {}
     };
     this.onClick = this.onClick.bind(this);
-    this.onClickRent = this.onClickRent.bind(this);
+    // this.onClickRent = this.onClickRent.bind(this);
   }
   onClick() {
     let id = this.props.product._id;
@@ -33,10 +33,10 @@ class OneCard extends Component {
         throw err;
       });
   }
-  onClickRent() {
-    console.log("ooooo", this.props.product);
-    return <Rent item={this.props.product} />;
-  }
+  // onClickRent() {
+  //   console.log("ooooo", this.props.product);
+  //   return <Rent item={this.props.product} />;
+  // }
   //
   render() {
     return (
@@ -57,14 +57,14 @@ class OneCard extends Component {
               <Card.Text className="price text-secondary">
                 {this.props.product.price_rent}
               </Card.Text>
-
+              <button className="btn btn-outline-success">Rent</button>
               {/* <Link to={`/products/${this.props.product._id}`}> */}
 
               {/* </Link> */}
             </Card.Body>
           </div>
 
-          <BtnRent rentprops={this.props} />
+          {/* <BtnRent rentprops={this.props} /> */}
         </div>
       </div>
     );

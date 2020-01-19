@@ -20,7 +20,7 @@ class BtnRent extends Component {
   }
 
   render() {
-    return <BtnRentTrigger triggerprops={this.props.rentprops} />;
+    return <Rent triggerprops={this.props.rentprops} />;
   }
 }
 export default BtnRent;
