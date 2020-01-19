@@ -37,7 +37,7 @@ class App extends React.Component {
           <Route path="/products" exact component={AllProductCards} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/rent" component={Rent} />
+          {/* <Route path="/products/:id" component={Rent} /> */}
         </Switch>
       </Router>
     );
